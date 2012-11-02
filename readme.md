@@ -6,6 +6,8 @@ Creates "binders" full of bound methods.
 
     npm install binders
 
+Or, if you want to use it in the browser, simply copy the `binders.min.js` from the `/lib` directory.
+
 ## Usage
 
 ```js
