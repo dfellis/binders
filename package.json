@@ -4,7 +4,7 @@
 	"keywords": ["binders", "bind", "bound", "method"],
 	"homepage": "https://github.com/dfellis/binders",
 	"author": "David Ellis",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"bugs": "https://github.com/dfellis/binders/issues",
 	"repository": {
 		"type": "git",
@@ -15,13 +15,13 @@
 	"devDependencies": {
 		"nodeunit": "*",
 		"uglify-js": "*",
-		"jscoverage": ">=0.2.5"
+		"jscoverage": "0.2.5"
 	},
 	"engines": {
 		"node": ">=0.6"
 	},
 	"scripts": {
-		"prepublish": "npm test && uglifyjs ./lib/binders.js > ./lib/binders.min.js && git commit -am \"Automatic minification for version $npm_package_version\" && git tag $npm_package_version && git push && git push --tags",
+		"realpublish": "npm test && uglifyjs ./lib/binders.js > ./lib/binders.min.js && git commit -am \"Automatic minification for version $npm_package_version\" && git tag $npm_package_version && git push && git push --tags && npm publish",
 		"test": "nodeunit ./test/test.js"
 	}
 }
