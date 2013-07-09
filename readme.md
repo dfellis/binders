@@ -1,4 +1,4 @@
-# binders
+# binders [![NPM version](https://badge.fury.io/js/binders.png)](http://badge.fury.io/js/binders) [![Dependency Status](https://gemnasium.com/dfellis/binders.png)](https://gemnasium.com/dfellis/binders) [![Build Status](https://travis-ci.org/dfellis/binders.png?branch=master)](https://travis-ci.org/dfellis/binders) [![Coverage Status](https://coveralls.io/repos/dfellis/binders/badge.png?branch=master)](https://coveralls.io/r/dfellis/binders?branch=master)
 
 Creates "binders" full of bound methods.
 
