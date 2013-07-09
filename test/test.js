@@ -1,6 +1,7 @@
 var jscoverage = require('jscoverage');
-var require = jscoverage.require(module);
-var binders = require('../lib/binders', true);
+jscoverage.enableCoverage(true);
+var binders = jscoverage.require(module, '../lib/binders');
+var coveralls = require('coveralls');
 
 exports.fullObjBinding = function(test) {
     test.expect(4);
@@ -42,25 +43,12 @@ exports.singleFuncBinding = function(test) {
 };
 
 exports.jscoverage = function(test) {
-	test.expect(2);
-	var file, tmp, source, total, touched;
-	for (var i in _$jscoverage) {
-		test.ok(true, 'only one file tested by jscoverage');
-		file = i;
-		tmp = _$jscoverage[i];
-		source = _$jscoverage[i].source;
-		total = touched = 0;
-		for(var n = 0, len = tmp.length; n < len; n++) {
-			if(tmp[n] !== undefined) {
-				total++;
-				if(tmp[n] > 0) {
-					touched++;
-				} else {
-					console.log(n + "\t:" + source[n-1]);
-				}
-			}
-		}
-		test.equal(total, touched, 'All lines of code touched by test suite');
-	}
-	test.done();
+    test.expect(1);
+    jscoverage.coverageDetail();
+    var coverageStats = jscoverage.coverageStats();
+    Object.keys(coverageStats).forEach(function(file) {
+        test.equal(coverageStats[file].total, coverageStats[file].touched, 'All lines of code exercised by the tests');
+    });
+    if(process.env.TRAVIS) coveralls.handleInput(jscoverage.getLCOV());
+    test.done();
 };

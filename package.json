@@ -15,7 +15,8 @@
 	"devDependencies": {
 		"nodeunit": "*",
 		"uglify-js": "*",
-		"jscoverage": "0.2.5"
+		"jscoverage": "https://github.com/dfellis/jscoverage/archive/master.tar.gz",
+        "coveralls": "*"
 	},
 	"engines": {
 		"node": ">=0.6"
