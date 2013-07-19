@@ -4,7 +4,7 @@ var binders = jscoverage.require(module, '../lib/binders');
 var coveralls = require('coveralls');
 
 exports.fullObjBinding = function(test) {
-    test.expect(4);
+    test.expect(6);
     var testObj = {
         foo: "bar",
         hello: "world",
@@ -22,7 +22,10 @@ exports.fullObjBinding = function(test) {
     test.equal(Object.keys(boundObj).length, 3, 'only the functions are passed through to the bound object');
     boundObj.setFoo('baz');
     test.equal(testObj.foo, 'baz', 'the value is properly set on the original object');
+    boundObj.foo = 'bay';
+    test.equal(testObj.foo, 'bay', 'the value is properly set on the original object via a setter');
     test.equal(boundObj.getHello(), 'world', 'the value is properly taken from the original object');
+    test.equal(boundObj.hello, 'world', 'the value is property taken from the original object via a getter');
     test.equal(boundObj.whatIsThis(), testObj, 'this is equal to the original object');
     test.done();
 };
