@@ -4,7 +4,7 @@
 	"keywords": ["binders", "bind", "bound", "method"],
 	"homepage": "https://github.com/dfellis/binders",
 	"author": "David Ellis",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"bugs": "https://github.com/dfellis/binders/issues",
 	"repository": {
 		"type": "git",
