@@ -33,7 +33,7 @@ var boundObj = binders(testObj);
 
 boundObj.whatIsThis(); // Returns `testObj`
 boundObj.setHello("everybody"); // testObj.hello === "everybody"
-boundObj.hello; // `undefined`
+boundObj.hello; // `everybody`
 
 // Create a bound function from the test object
 var boundFoo = binders(testObj, 'foo');
@@ -61,6 +61,8 @@ http.get('http://somewebsite.com', function(res) {
 
 q('continue')... // Work on entire body of data here
 ```
+
+It also creates getters and setters for all non-function properties, allowing a ``binders``-built object to perfectly masquerade as the real thing. This is useful for sharing a single object across multiple sections of code but you want to track or alter the behavior for each one. You can create multiple ``binders`` pointed at the same object and replace one or more methods with custom code or getters and setters with custom values.
 
 ## License (MIT)
 
